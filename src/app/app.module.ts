@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RodapeComponent } from './rodape/rodape.component';
-import { EntrarComponent } from './entrar/entrar.component'
+import { EntrarComponent } from './entrar/entrar.component';
+import { CadastrarComponent } from './cadastrar/cadastrar.component'
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { EntrarComponent } from './entrar/entrar.component'
     AppComponent,
     MenuComponent,
     RodapeComponent,
-    EntrarComponent
+    EntrarComponent,
+    CadastrarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { User } from '../Model/User';
 import { UserLogin } from '../Model/UserLogin';
 import { AuthService } from '../service/auth.service';
@@ -24,6 +25,9 @@ export class EntrarComponent implements OnInit {
       entrar () {
         this.auth.entrar(this.userLogin).subscribe((resp: UserLogin) => {
         this.userLogin= resp
+
+
+
         this.route.navigate(['/inicio'])
       })
     

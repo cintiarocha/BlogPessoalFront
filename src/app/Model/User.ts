@@ -7,6 +7,7 @@ export class User {
    public senha: string;
    public foto: string;
    public Tipo: string;
+   public token: string;
    public postagem: Postagem []
 
 

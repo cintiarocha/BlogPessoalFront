@@ -1,11 +1,32 @@
 ul.social-network{
-    list-style: none;
+  list-style: none;
   padding: 0%;
 }
 
-ul.social-network li {
+ul.social-network li{
+  display: inline;
+  margin: 0%;
+  padding: 5px;
+}
 
-    display: inline;
-    margin: 0%;
-    
+.fa-brands{
+  font-size: 40pt;
+  padding: 5px;
+  color: white;
+}
+
+.fa-linkedin:hover{
+  color: rgb(58, 76, 180);
+}
+
+.fa-facebook-square:hover{
+  color: rgb(44, 44, 212);
+}
+
+.fa-github-square:hover{
+  color: rgb(94, 94, 94);
+}
+
+.fontBlack{
+  color: black !important;
 }

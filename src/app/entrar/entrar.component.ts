@@ -1,8 +1,9 @@
+import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
-import { User } from '../Model/User';
-import { UserLogin } from '../Model/UserLogin';
+import { environment } from 'src/environments/environment.prod';
+import { Usuario } from '../Model/Usuario';
+import { UsuarioLogin } from '../Model/UsuarioLogin';
 import { AuthService } from '../service/auth.service';
 
 @Component({
@@ -12,26 +13,42 @@ import { AuthService } from '../service/auth.service';
 })
 export class EntrarComponent implements OnInit {
 
-  userLogin: UserLogin = new UserLogin ()
+  UsuarioLogin: UsuarioLogin = new UsuarioLogin ()
 
-  constructor() { }
-  private auth: AuthService
-  private route: Router
+  
+  constructor(
+    private auth: AuthService,
+    private router: Router
+ 
+    ) { }
+ 
 
   ngOnInit(){
     window.scroll(0,0)
       }
 
-      entrar () {
-        this.auth.entrar(this.userLogin).subscribe((resp: UserLogin) => {
-        this.userLogin= resp
-
-
-
-        this.route.navigate(['/inicio'])
-      })
+      entrar() {
+        this.auth.entrar(this.UsuarioLogin).subscribe({
+          next: (resp: UsuarioLogin) => {
+            this.UsuarioLogin = resp
     
+            environment.token = this.UsuarioLogin.token
+            environment.nome = this.UsuarioLogin.nome
+            environment.foto = this.UsuarioLogin.foto
+            environment.id = this.UsuarioLogin.id
+    
+            console.log(environment.token);
+            console.log(environment.nome);
+            console.log(environment.foto);
+            console.log(environment.id);
+    
+            this.router.navigate(["/inicio"])
+            alert('Bem vindo(a)!')
+          }, error: erro => {
+            if (erro.status == 500 || erro.status == 401) {
+              alert('ERRO! Usuário ou senha inválidos!')
+            }
+          },
+        });
+      }
     }
-      
-
-}

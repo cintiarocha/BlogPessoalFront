@@ -11,6 +11,7 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component'
 import { FormsModule } from '@angular/forms';
 import { InicioComponent } from './inicio/inicio.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { TemaComponent } from './tema/tema.component';
 
 
 
@@ -21,7 +22,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     RodapeComponent,
     EntrarComponent,
     CadastrarComponent,
-    InicioComponent
+    InicioComponent,
+    TemaComponent
   ],
   imports: [
     BrowserModule,
